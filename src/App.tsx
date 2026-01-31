@@ -18,7 +18,11 @@ import BFA from './components/BFA';
 import DDOS from './components/DDOS';
 import CHS from './components/CHS';
 import XSS from './components/XSS';
+import { useEffect, useState } from 'react';
 
+// ... অন্যান্য import যদি থাকে (Leaderboard ইত্যাদি)
+
+// Home component (আগের মতোই রাখো)
 function Home() {
   const menuItems = [
     { name: 'Play Challenges', path: '/play-challenges', icon: GamepadIcon },
@@ -34,7 +38,7 @@ function Home() {
         <div className="flex items-center gap-3 mb-8">
           <Shield className="w-8 h-8 text-cyan-400" />
           <h1 className="text-4xl font-bold text-white tracking-wider" style={{ textShadow: '0 0 20px rgba(6, 182, 212, 0.5)' }}>
-            CyberGuard Chronicles
+            Digital Rakshak
           </h1>
         </div>
 
@@ -44,7 +48,7 @@ function Home() {
               const IconComponent = item.icon;
               return (
                 <li key={index}>
-                  <Link 
+                  <Link
                     to={item.path}
                     className="block w-full text-xl px-8 py-3 rounded-lg bg-cyan-600/20 hover:bg-cyan-500/30 text-cyan-300 
                     transition-all duration-300 border border-cyan-500/30 hover:border-cyan-400/50 
@@ -66,16 +70,50 @@ function Home() {
 }
 
 function App() {
+  const [backendMessage, setBackendMessage] = useState<string | null>(null);  // null = no message
+  const [hasError, setHasError] = useState(false);
+
+  useEffect(() => {
+    const fetchBackend = async () => {
+      try {
+        const response = await fetch('/backend-api/');
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        // Success হলে কোনো message set করবো না
+        // শুধু silent success
+        console.log('Backend connected successfully (silent mode)');
+      } catch (err) {
+        console.error('Backend connection failed:', err);
+        setBackendMessage('Backend connect হয়নি 😔');
+        setHasError(true);
+      }
+    };
+
+    fetchBackend();
+  }, []);
+
   return (
     <Router>
       <div className="min-h-screen bg-[#0B0F19] relative overflow-hidden">
-        <div 
+        <div
           className="absolute inset-0 bg-cover bg-center opacity-40"
           style={{
             backgroundImage: 'url("https://i.ibb.co/JW83rLVJ/BG.png")',
           }}
         />
-        
+
+        {/* Status শুধু error হলে দেখাবে */}
+        {hasError && backendMessage && (
+          <div className="bg-red-900/70 backdrop-blur-sm p-3 text-center border-b border-red-500/50">
+            <p className="text-lg font-medium text-white">
+              {backendMessage}
+            </p>
+          </div>
+        )}
+
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/play-challenges" element={<PlayChallenges />} />
@@ -85,18 +123,19 @@ function App() {
           <Route path="/books" element={<Books />} />
           <Route path="/quit" element={<Quit />} />
           <Route path="/phishing-defense-3d" element={<PhishingDefense3D />} />
-          <Route path="/encrypt-decrypt-1d" element={<EncryptAndDecrypt/>}/>
-          <Route path="/sql-injection-1d" element={<SQL/>}/>
-          <Route path="/MITM-1d" element={<MITM/>}/>
-          <Route path="/Intro-1d" element={<Intro/>}/>
-          <Route path="/TFA-1d" element={<TFA/>}/>
-          <Route path="/PT-1d" element={<PasswordTester/>}/>
-          <Route path="/DFS-1d" element={<DFS/>}/>
-          <Route path="/BFA-1d" element={<BFA/>}/>
-          <Route path="/CHS-1d" element={<CHS/>}/>
-          <Route path="/DDOS-1d" element={<DDOS/>}/>
-          <Route path="/XSS-1d" element={<XSS/>}/>
-          
+          <Route path="/encrypt-decrypt-1d" element={<EncryptAndDecrypt />} />
+          <Route path="/sql-injection-1d" element={<SQL />} />
+          <Route path="/MITM-1d" element={<MITM />} />
+          <Route path="/Intro-1d" element={<Intro />} />
+          <Route path="/TFA-1d" element={<TFA />} />
+          <Route path="/PT-1d" element={<PasswordTester />} />
+          <Route path="/DFS-1d" element={<DFS />} />
+          <Route path="/BFA-1d" element={<BFA />} />
+          <Route path="/CHS-1d" element={<CHS />} />
+          <Route path="/DDOS-1d" element={<DDOS />} />
+          <Route path="/XSS-1d" element={<XSS />} />
+          {/* Leaderboard route যদি থাকে */}
+          {/* <Route path="/leaderboard" element={<Leaderboard />} /> */}
         </Routes>
       </div>
     </Router>

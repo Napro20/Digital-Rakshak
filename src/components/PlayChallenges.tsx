@@ -88,9 +88,11 @@ function PlayChallenges() {
   const handleChallengeSelect = (challengeId: string) => {
     setSelectedChallenge(challengeId);
     if (challengeId === "intro-cybersecurity") {
-      navigate('/Intro-1d');
+      // navigate('/Intro-1d');
+      window.open('/sense-hacker/sense-hack/index.html', '_blank');
     } else if (challengeId === "phishing-defense") {
-      navigate('/phishing-defense-3d');
+      // navigate('/phishing-defense-3d');
+       window.open('/PhishingAttack/level_1/level_1.html', '_blank');
     }
     else if (challengeId === "encrypt-decrypt") {
       navigate('/encrypt-decrypt-1d');
@@ -141,7 +143,7 @@ function PlayChallenges() {
     <div className="min-h-screen flex flex-col items-center justify-center p-8">
       <div className="max-w-7xl w-full">
         <button 
-          onClick={() => navigate('/')}
+          onClick={() => navigate('main.tsx')}
           className="inline-flex items-center text-cyan-400 hover:text-cyan-300 mb-8 transition-colors"
         >
           <ChevronLeft className="w-5 h-5 mr-2" />
@@ -149,7 +151,7 @@ function PlayChallenges() {
         </button>
 
         <h1 className="text-4xl font-bold text-white mb-12 text-center tracking-wider">
-          CyberGuard Chronicles: Training Modules
+          Digital Rakshak : Training Modules
         </h1>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
