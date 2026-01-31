@@ -1,66 +1,75 @@
-# CyberSecurity Awareness Game
+# Digital Rakshak - ডিজিটাল রক্ষক
 
-[**Play the Game Online**](https://ayush712gupta.github.io/CyberSecurityAwarenessGame/)  
+**Your Personal Cyber Guardian**  
+An interactive full-stack cybersecurity awareness & defense game that helps you learn and fight real-world cyber threats through quizzes, simulations, score tracking, and chatbot guidance.
 
-*An interactive game to learn and practice cybersecurity concepts in a fun and engaging way.*
+[**Play the Game Online (Dev Mode)**](http://localhost:5173/)  
+[**Backend API Base URL (Dev)**](http://localhost:8080/api)
 
 ---
 
 ## Project Overview
-The **CyberSecurity Awareness Game** is an interactive, educational game designed to help users learn and practice key cybersecurity concepts. The game uses quizzes, simulations, and story-based challenges to engage users and raise awareness about online security threats. A chatbot is integrated for guidance and assistance during gameplay.  
 
-This project is ideal for students, beginners, and anyone interested in improving their cybersecurity knowledge in an engaging way.
+**Digital Rakshak** is a modern, full-stack educational game designed to make cybersecurity learning fun, engaging, and practical.  
+Players face quizzes, attack/defend simulations, story-based challenges, and get real-time hints from an integrated chatbot — all while earning points, saving progress, and competing on the leaderboard.
+
+Perfect for students, beginners, teachers, and anyone who wants to become a **digital rakshak** (protector) in today's online world.
 
 ---
 
 ## Features
-- **Interactive Quizzes** for cybersecurity concepts
-- **Simulation Games** for practical understanding of attacks
-- **Story-based Learning** to demonstrate real-world cybersecurity threats
-- **Botpress Chatbot** for hints, guidance, and interactive learning
-- **Responsive Design** compatible with desktop and mobile devices
-- **User-Friendly Interface** for a seamless learning experience
+
+- Dynamic quizzes loaded from backend database
+- Realistic attack & defend simulations (Phishing, SQL Injection, Brute Force, etc.)
+- Score tracking & progress saving (persisted in backend)
+- Leaderboard to compete with others
+- Integrated Botpress chatbot for hints & explanations
+- Responsive UI — works on desktop and mobile
+- Full-stack architecture with secure REST APIs
+- Clean, modern design with Tailwind CSS
 
 ---
 
 ## Topics Covered
-### **Beginner Level**
-- Introduction To Cybersecurity
-- Password Testing
-- Two factor Authentication
+
+### Beginner Level
+- Introduction to Cybersecurity
+- Password Strength Testing
+- Two-Factor Authentication (2FA)
 - Cyber Hygiene Simulator
 
-### **Intermediate Level**
+### Intermediate Level
 - Phishing Defense Simulator
-- Encryption And Decryption Simulation
-- Digital Footprint Simulator
-  
-### **Advance Level**
-- SQL Injection Game
-- Man In The Middle Attack
-- Brute Force Attack Simluator
-- Cross Site Scripting
-  
+- Encryption & Decryption Challenge
+- Digital Footprint Awareness
+
+### Advanced Level
+- SQL Injection Defense Game
+- Man-in-the-Middle (MITM) Attack Simulation
+- Brute Force Attack Defense
+- Cross-Site Scripting (XSS) Prevention
+
 ---
 
 ## Technologies Used
-- **Frontend:** HTML, CSS, JavaScript, ReactJS  
-- **Backend:** Local JavaScript (Node.js optional)  
-- **Chatbot:** Botpress  
-- **Version Control:** Git & GitHub  
+
+- **Frontend**: React, TypeScript, Vite, Tailwind CSS
+- **Backend**: Spring Boot (Java), Spring Data JPA, H2 Database (dev), REST APIs
+- **Chatbot**: Botpress integration
+- **Database**: H2 (development), easily switch to PostgreSQL/MySQL
+- **Version Control & Hosting**: Git, GitHub
+- **Build Tools**: Maven (backend), npm/Vite (frontend)
 
 ---
 
-## Installation
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/ayush712gupta/CyberSecurityAwarenessGame.git
-2. Navigate to the project directory:
-    ```bash
-    cd CyberSecurityAwarenessGame
-4. Install dependencies (if using Node.js for backend):
-   ```bash
-   npm install
-5. Start the project:
-   ```bash 
-   npm start
+## Installation & Run (Development)
+
+### Prerequisites
+- Java 17+ (for backend)
+- Node.js 18+ & npm (for frontend)
+- Git
+
+### 1. Clone your repository
+```bash
+git clone https://github.com/Napro20/Digital-Rakshak.git
+cd Digital-Rakshak
